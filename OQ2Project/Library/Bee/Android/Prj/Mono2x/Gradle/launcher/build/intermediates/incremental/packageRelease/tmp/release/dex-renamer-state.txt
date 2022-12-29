@@ -1,0 +1,4 @@
+#Thu Dec 29 06:40:51 ART 2022
+base.0=D\:\\proyectos\\OculusQuest2\\SMB-Project\\OQ2Project\\Library\\Bee\\Android\\Prj\\Mono2x\\Gradle\\launcher\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
