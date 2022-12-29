@@ -32,7 +32,6 @@ public class MainSceneController : MonoBehaviour
         SucceededEvent += setBoxEvent;
         ballInitialPosition = sphere.transform.localPosition;
        
-
     }
    
 
@@ -65,6 +64,7 @@ public class MainSceneController : MonoBehaviour
                 //Particle effect 1
                 testBoxesText.text = "Box A selected";
                 Boxes[0].GetComponent<Box>().activeParticleEffect();
+                testBoxesText.gameObject.SetActive(true);
              break;
             case 1:
                 //Particle effect 2
@@ -78,7 +78,11 @@ public class MainSceneController : MonoBehaviour
                 OVRPlayerController.transform.localPosition = new Vector3(checkPoint.transform.localPosition.x, -0.397f, checkPoint.transform.localPosition.z);
                 OVRPlayerController.transform.localRotation = new Quaternion(0,0,0,0);
                 sphere.transform.localPosition = ballInitialPosition;
+                sphere.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                sphere.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 Boxes[2].GetComponent<Box>().activeTeleportation();
+                isRespawned = true;
+                testBoxesText.gameObject.SetActive(false);
                 break; 
 
 
