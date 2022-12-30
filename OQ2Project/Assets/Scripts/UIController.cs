@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     public Image imageBall;
-
+    public Text pointsText;
 
     public GameObject[] Panels;
     public Sprite[] sphereSprites;

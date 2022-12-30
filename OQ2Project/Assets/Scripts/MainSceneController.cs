@@ -26,6 +26,7 @@ public class MainSceneController : MonoBehaviour
     private bool isRespawned = true;
     private int countTimesMenuOpened;
     private Vector3 ballInitialPosition;
+    private int teleportingCount;
     
 
     void Start()
@@ -84,6 +85,8 @@ public class MainSceneController : MonoBehaviour
                 isRespawned = true;
                 testBoxesText.gameObject.SetActive(false);
                 changeSphereStoneGO(0);
+                teleportingCount++;
+                mainUI.GetComponent<UIController>().pointsText.text = teleportingCount.ToString() + "times respawned to check point";
                 break; 
 
 
@@ -92,18 +95,14 @@ public class MainSceneController : MonoBehaviour
 
     public void changeSphereStoneGO(int StoneNumber) {
        
-        if(StoneNumber == 0)
-        {
-            sphere.SetActive(true);
-        }
-        else
-        {
+       
             activeSelectedStone(StoneNumber);
-        }
+       
     }
     private void activeSelectedStone(int num)
     {
-        for(int i = 0; i< Stones.Length; i++)
+        testMainUIText.text = "Stone nro " + num;
+        for (int i = 0; i< Stones.Length; i++)
         {
             if (i != num)
                 Stones[i].gameObject.SetActive(false);
