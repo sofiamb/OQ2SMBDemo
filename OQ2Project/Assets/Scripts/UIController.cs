@@ -8,6 +8,7 @@ public class UIController : MonoBehaviour
 {
     public Image imageBall;
     public TMP_Text pointsText;
+    public TMP_Text SelectedStoneText;
 
     public GameObject[] Panels;
     public Sprite[] sphereSprites;
@@ -30,10 +31,11 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void changeImage(int numberImage)
+    public void changeImage(int numberImage, string selectedStone)
     {
         imageBall.sprite = sphereSprites[numberImage];
         imageBall.preserveAspect = true;
+        SelectedStoneText.text = selectedStone;
 
     }
 }

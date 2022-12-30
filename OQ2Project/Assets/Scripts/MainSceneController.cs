@@ -28,7 +28,7 @@ public class MainSceneController : MonoBehaviour
     private int countTimesMenuOpened;
     private Vector3 ballInitialPosition;
     private int teleportingCount;
-    
+    string teleportText;
 
     void Start()
     {
@@ -47,18 +47,18 @@ public class MainSceneController : MonoBehaviour
         {
            
             showMainMenu(true);
-           // testMainUIText.text = grabbed.ToString();
-            this.GetComponent<UIController>().changeImage(0);
+            // testMainUIText.text = grabbed.ToString();
+            mainUI.GetComponent<UIController>().pointsText.text = teleportText;
+             this.GetComponent<UIController>().changeImage(0, "Sphere");
             isRespawned = false;   
-            
-
+       
         }
-
     }
 
     public void showMainMenu(bool active) {
 
         mainUI.SetActive(active);
+        mainUI.GetComponent<AudioSource>().Play();
     }
 
     public void setBoxEvent(int boxNumber) {
@@ -87,13 +87,13 @@ public class MainSceneController : MonoBehaviour
                 testBoxesText.gameObject.SetActive(false);
                 changeSphereStoneGO(0);
                 teleportingCount++;
-                mainUI.GetComponent<UIController>().pointsText.text = teleportingCount.ToString() + "times respawned to check point";
+                teleportText = teleportingCount.ToString() + "times respawned to check point";
                 break; 
 
 
         }
     }
-
+  
     public void changeSphereStoneGO(int StoneNumber) {
 
         sphere.transform.localPosition = ballInitialPosition;
