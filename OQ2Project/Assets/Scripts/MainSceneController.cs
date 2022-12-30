@@ -11,6 +11,7 @@ public class MainSceneController : MonoBehaviour
     public GameObject OVRPlayerController;
     public GameObject sphere;
     public Ball[] Stones;
+    public Vector3 StonesInitialPosition;
     public GameObject mainUI;
     public GameObject Canvas;
 
@@ -80,8 +81,8 @@ public class MainSceneController : MonoBehaviour
                 Vector3 CharacterPosition = OVRPlayerController.transform.localPosition;
                 OVRPlayerController.transform.localPosition = new Vector3(checkPoint.transform.localPosition.x, -0.397f, checkPoint.transform.localPosition.z);
                 OVRPlayerController.transform.localRotation = new Quaternion(0,0,0,0);
-                slignStonesToInitialPosition();
-                 Boxes[2].GetComponent<Box>().activeTeleportation();
+                alignStonesToInitialPosition(false);
+                Boxes[2].GetComponent<Box>().activeTeleportation();
                 isRespawned = true;
                 testBoxesText.gameObject.SetActive(false);
                 changeSphereStoneGO(0);
@@ -94,9 +95,12 @@ public class MainSceneController : MonoBehaviour
     }
 
     public void changeSphereStoneGO(int StoneNumber) {
-       
-       
-            activeSelectedStone(StoneNumber);
+
+        sphere.transform.localPosition = ballInitialPosition;
+        sphere.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        sphere.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+
+        activeSelectedStone(StoneNumber);
        
     }
     private void activeSelectedStone(int num)
@@ -104,25 +108,28 @@ public class MainSceneController : MonoBehaviour
         testMainUIText.text = "Stone nro " + num;
         for (int i = 0; i< Stones.Length; i++)
         {
-            if (i != num)
+            if (i != num-1)
                 Stones[i].gameObject.SetActive(false);
-            else
+            else {
                 Stones[i].gameObject.SetActive(true);
+                Stones[i].transform.localPosition = StonesInitialPosition;
+                Stones[i].GetComponent<Rigidbody>().velocity = Vector3.zero;
+                Stones[i].GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+
+            }                
         }       
     }
-    private void slignStonesToInitialPosition()
+    private void alignStonesToInitialPosition(bool state)
     {
-        sphere.transform.localPosition = ballInitialPosition;
-        sphere.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        sphere.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-
         for (int i = 0; i < Stones.Length; i++)
         {
-           Stones[i].gameObject.SetActive(false);
-           Stones[i].transform.localPosition = ballInitialPosition;
+           Stones[i].gameObject.SetActive(state);
+           Stones[i].transform.localPosition = StonesInitialPosition;
            Stones[i].GetComponent<Rigidbody>().velocity = Vector3.zero;
            Stones[i].GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         }
     }
+
+
 
 }
