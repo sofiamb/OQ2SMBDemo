@@ -43,7 +43,7 @@ public class MainSceneController : MonoBehaviour
         {
            
             showMainMenu(true);
-            testMainUIText.text = grabbed.ToString();
+           // testMainUIText.text = grabbed.ToString();
             this.GetComponent<UIController>().changeImage(0);
             isRespawned = false;   
             

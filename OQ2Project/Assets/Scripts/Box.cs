@@ -31,6 +31,11 @@ public class Box : MonoBehaviour
 
     public void activeTeleportation()
     {
+        StartCoroutine(startAnimations());
+    }
+    IEnumerator startAnimations()
+    {
+        yield return new WaitForSeconds(1);
         if (TeleportParticleEffect1 != null && !TeleportParticleEffect1.isPlaying)
             TeleportParticleEffect1.Play();
         if (TeleportParticleEffect2 != null && !TeleportParticleEffect2.isPlaying)
