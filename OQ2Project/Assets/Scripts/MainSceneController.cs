@@ -7,9 +7,10 @@ using TMPro;
 
 public class MainSceneController : MonoBehaviour
 {
-    
+
     public GameObject OVRPlayerController;
     public GameObject sphere;
+    public Ball[] Stones;
     public GameObject mainUI;
     public GameObject Canvas;
 
@@ -30,6 +31,7 @@ public class MainSceneController : MonoBehaviour
     void Start()
     {
         SucceededEvent += setBoxEvent;
+        
         ballInitialPosition = sphere.transform.localPosition;
        
     }
@@ -77,15 +79,50 @@ public class MainSceneController : MonoBehaviour
                 Vector3 CharacterPosition = OVRPlayerController.transform.localPosition;
                 OVRPlayerController.transform.localPosition = new Vector3(checkPoint.transform.localPosition.x, -0.397f, checkPoint.transform.localPosition.z);
                 OVRPlayerController.transform.localRotation = new Quaternion(0,0,0,0);
-                sphere.transform.localPosition = ballInitialPosition;
-                sphere.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                sphere.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-                Boxes[2].GetComponent<Box>().activeTeleportation();
+                slignStonesToInitialPosition();
+                 Boxes[2].GetComponent<Box>().activeTeleportation();
                 isRespawned = true;
                 testBoxesText.gameObject.SetActive(false);
+                changeSphereStoneGO(0);
                 break; 
 
 
+        }
+    }
+
+    public void changeSphereStoneGO(int StoneNumber) {
+       
+        if(StoneNumber == 0)
+        {
+            sphere.SetActive(true);
+        }
+        else
+        {
+            activeSelectedStone(StoneNumber);
+        }
+    }
+    private void activeSelectedStone(int num)
+    {
+        for(int i = 0; i< Stones.Length; i++)
+        {
+            if (i != num)
+                Stones[i].gameObject.SetActive(false);
+            else
+                Stones[i].gameObject.SetActive(true);
+        }       
+    }
+    private void slignStonesToInitialPosition()
+    {
+        sphere.transform.localPosition = ballInitialPosition;
+        sphere.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        sphere.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+
+        for (int i = 0; i < Stones.Length; i++)
+        {
+           Stones[i].gameObject.SetActive(false);
+           Stones[i].transform.localPosition = ballInitialPosition;
+           Stones[i].GetComponent<Rigidbody>().velocity = Vector3.zero;
+           Stones[i].GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         }
     }
 

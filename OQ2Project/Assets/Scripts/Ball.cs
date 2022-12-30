@@ -17,8 +17,6 @@ public class Ball : MonoBehaviour
             //Debug.Log("IN!!!!");
             MSController.setBoxEvent(box.GetComponent<Box>().boxNumber);
 
-
-
         }
     }
 }

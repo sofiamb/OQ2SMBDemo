@@ -582,6 +582,7 @@ GameObject:
   - component: {fileID: 61704624}
   - component: {fileID: 61704627}
   - component: {fileID: 61704626}
+  - component: {fileID: 61704628}
   - component: {fileID: 61704625}
   m_Layer: 5
   m_Name: Button
@@ -692,6 +693,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61704623}
   m_CullTransparentMesh: 1
+--- !u!114 &61704628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61704623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44f4dad145fc39547b5cdf983a0c30ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stoneNumber: 2
+  MSController: {fileID: 0}
 --- !u!1 &67848595
 GameObject:
   m_ObjectHideFlags: 0
@@ -8190,8 +8205,8 @@ Transform:
   m_Children:
   - {fileID: 845762741}
   - {fileID: 1180410490}
-  - {fileID: 1867440064}
   - {fileID: 1239918095}
+  - {fileID: 1867440064}
   - {fileID: 177502611}
   m_Father: {fileID: 1723585590}
   m_RootOrder: 1
@@ -9246,7 +9261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4744374388638462588, guid: 5358901b74280724b8b1c822a1e5c88b, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4744374388638462588, guid: 5358901b74280724b8b1c822a1e5c88b, type: 3}
       propertyPath: m_LocalScale.x
@@ -11842,7 +11857,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4744374388638462588, guid: 5358901b74280724b8b1c822a1e5c88b, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4744374388638462588, guid: 5358901b74280724b8b1c822a1e5c88b, type: 3}
       propertyPath: m_LocalScale.x
@@ -12201,6 +12216,7 @@ GameObject:
   - component: {fileID: 1264192812}
   - component: {fileID: 1264192815}
   - component: {fileID: 1264192814}
+  - component: {fileID: 1264192816}
   - component: {fileID: 1264192813}
   m_Layer: 5
   m_Name: Button
@@ -12311,6 +12327,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1264192811}
   m_CullTransparentMesh: 1
+--- !u!114 &1264192816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264192811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44f4dad145fc39547b5cdf983a0c30ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stoneNumber: 1
+  MSController: {fileID: 0}
 --- !u!1001 &1268827803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14031,6 +14061,7 @@ GameObject:
   - component: {fileID: 1483547152}
   - component: {fileID: 1483547155}
   - component: {fileID: 1483547154}
+  - component: {fileID: 1483547156}
   - component: {fileID: 1483547153}
   m_Layer: 5
   m_Name: Button
@@ -14141,6 +14172,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1483547151}
   m_CullTransparentMesh: 1
+--- !u!114 &1483547156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483547151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44f4dad145fc39547b5cdf983a0c30ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stoneNumber: 3
+  MSController: {fileID: 0}
 --- !u!1 &1499040448
 GameObject:
   m_ObjectHideFlags: 0
@@ -20279,6 +20324,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OVRPlayerController: {fileID: 3680607433127796671}
   sphere: {fileID: 930638598}
+  Stones:
+  - {fileID: 1239918097}
+  - {fileID: 1867440065}
+  - {fileID: 177502613}
   mainUI: {fileID: 2298135127690633758}
   Canvas: {fileID: 6715928761046263458}
   checkPoint: {fileID: 1108808723}

@@ -11,7 +11,12 @@ public class UIController : MonoBehaviour
     public GameObject[] Panels;
     public Sprite[] sphereSprites;
 
-  
+    MainSceneController MSController;
+
+    private void Start()
+    {
+        MSController = GameObject.FindGameObjectWithTag("MainController").GetComponent<MainSceneController>();
+    }
     public void openPanel(int actualPanel) {
 
         for (int i = 0; i < Panels.Length; i++)
