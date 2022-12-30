@@ -48,7 +48,7 @@ public class MainSceneController : MonoBehaviour
            
             showMainMenu(true);
             // testMainUIText.text = grabbed.ToString();
-            mainUI.GetComponent<UIController>().pointsText.text = teleportText;
+           // mainUI.GetComponent<UIController>().pointsText.text = teleportText;
              this.GetComponent<UIController>().changeImage(0, "Sphere");
             isRespawned = false;   
        
@@ -58,7 +58,7 @@ public class MainSceneController : MonoBehaviour
     public void showMainMenu(bool active) {
 
         mainUI.SetActive(active);
-        mainUI.GetComponent<AudioSource>().Play();
+       
     }
 
     public void setBoxEvent(int boxNumber) {
